@@ -19,7 +19,7 @@ class LRUCache {
    * @param { * } key - The key of cached value
    * @returns { number | * }
    */
-  getCache(key) {
+  get(key) {
     const result = this.cache[key]
 
     if (result) {
@@ -36,7 +36,7 @@ class LRUCache {
    * @param { * } key - The key of value
    * @param { * } value - The value to be cached
    */
-  setCache(key, value) {
+  put(key, value) {
     if (!this.isFull) {
       this.cache[key] = value
       this.isFull = this.size + 1 >= this.capacity
