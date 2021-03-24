@@ -22,13 +22,12 @@ class LRUCache {
   get(key) {
     const result = this.cache[key]
 
-    if (result) {
-      this._popQueue()
-      this._unshiftQueue(key)
-      return result
-    }
+    if (result === undefined) return -1
 
-    return -1;
+    this._popQueue()
+    this._unshiftQueue(key)
+
+    return result
   }
 
   /**
@@ -37,6 +36,8 @@ class LRUCache {
    * @param { * } value - The value to be cached
    */
   put(key, value) {
+    if (key === undefined || value === undefined) return
+
     if (!this.isFull) {
       this.cache[key] = value
       this.isFull = this.size + 1 >= this.capacity
@@ -44,6 +45,7 @@ class LRUCache {
     } else {
       const index = this._popQueue()
       if (index) delete this.cache[index]
+
       this.cache[key] = value
     }
 
