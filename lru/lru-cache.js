@@ -25,7 +25,7 @@ class LRUCache {
      */
     const result = this.map[key]
 
-    if (!result) return -1
+    if (result === undefined) return -1
 
     if (result === this.tail) {
       const tailPrev = this.tail.prev
@@ -50,7 +50,14 @@ class LRUCache {
   }
 
   put(key, data) {
-    if (key === undefined || data === undefined) return
+    if (
+      key === undefined ||
+      key === null ||
+      data === undefined ||
+      data === null
+    ) {
+      return
+    }
 
     /**
     * @type { Node }
