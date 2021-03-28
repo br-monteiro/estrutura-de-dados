@@ -1,4 +1,4 @@
-class LRUCache {
+class LRUCacheWrong {
   /**
    * @param { number } capacity
    */
@@ -65,4 +65,4 @@ class LRUCache {
   }
 }
 
-module.exports = LRUCache
+module.exports = LRUCacheWrong
