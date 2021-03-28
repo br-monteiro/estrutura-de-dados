@@ -121,7 +121,7 @@ class LRUCache {
   }
 
   /**
-   *
+   * Checks whether maximum capacity has been reached
    * @returns { boolean }
    */
   _isFull() {
