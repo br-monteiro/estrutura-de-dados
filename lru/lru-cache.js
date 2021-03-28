@@ -27,9 +27,8 @@ class LRUCache {
 
     if (result === undefined) return -1
 
-    if (result === this.tail) {
-      const tailPrev = this.tail.prev
-      this.tail = tailPrev || null
+    if (result === this.tail && this.size > 1) {
+      this.tail = this.tail.prev
     }
 
     if (result === this.head) {
